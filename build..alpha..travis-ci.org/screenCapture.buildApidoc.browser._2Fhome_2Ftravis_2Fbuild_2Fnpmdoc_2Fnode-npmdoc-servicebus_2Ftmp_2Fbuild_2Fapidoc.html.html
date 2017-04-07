@@ -1,0 +1,672 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/mateodelnorte/servicebus">servicebus (v2.0.9)</a>
+</h1>
+<h4>Simple service bus for sending events between processes using amqp.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus">module servicebus</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus">
+            function <span class="apidocSignatureSpan">servicebus.</span>bus
+            <span class="apidocSignatureSpan">(options, implOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.namedBus">
+            function <span class="apidocSignatureSpan">servicebus.</span>namedBus
+            <span class="apidocSignatureSpan">(name, options, implOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>bus.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.bus">module servicebus.bus</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.bus">
+            function <span class="apidocSignatureSpan">servicebus.</span>bus
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.super_">
+            function <span class="apidocSignatureSpan">servicebus.bus.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.bus.prototype">module servicebus.bus.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.correlate">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>correlate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.correlationId">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>correlationId
+            <span class="apidocSignatureSpan">(forceNew)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.createCorrelationId">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>createCorrelationId
+            <span class="apidocSignatureSpan">(forceNew)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.handleIncoming">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>handleIncoming
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.handleOutgoing">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>handleOutgoing
+            <span class="apidocSignatureSpan">(queueName, message, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.logger">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>logger
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.messageDomain">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>messageDomain
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.package">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>package
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.retry">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>retry
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.bus.prototype.use">
+            function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>use
+            <span class="apidocSignatureSpan">(middleware)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus" id="apidoc.module.servicebus">module servicebus</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus" id="apidoc.element.servicebus.bus">
+        function <span class="apidocSignatureSpan">servicebus.</span>bus
+        <span class="apidocSignatureSpan">(options, implOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function bus(options, implOpts) {
+  return new rabbitmq.Bus(options, implOpts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Sending and Receiving
+
+Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes will
+ send an event message called 'my.event' every second from process A to process B via RabbitMQ and print out the sent
+event:
+
+Process A:
+
+  var bus = require('servicebus').<span class="apidocCodeKeywordSpan">bus</span>();
+  bus.listen('my.event', function (event) {
+    console.log(event);
+  });
+
+Process B:
+
+  var bus = require('servicebus').bus();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.namedBus" id="apidoc.element.servicebus.namedBus">
+        function <span class="apidocSignatureSpan">servicebus.</span>namedBus
+        <span class="apidocSignatureSpan">(name, options, implOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function namedBus(name, options, implOpts) {
+  var bus = namedBuses[name];
+  if ( ! bus) {
+    bus = namedBuses[name] = new rabbitmq.Bus(options, implOpts);
+  }
+  return bus;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.bus" id="apidoc.module.servicebus.bus">module servicebus.bus</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.bus" id="apidoc.element.servicebus.bus.bus">
+        function <span class="apidocSignatureSpan">servicebus.</span>bus
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Bus() {
+  this.incomingMiddleware = [];
+  this.outgoingMiddleware = [];
+  EventEmitter.call(this);
+  this.setMaxListeners(Infinity);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Sending and Receiving
+
+Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes will
+ send an event message called 'my.event' every second from process A to process B via RabbitMQ and print out the sent
+event:
+
+Process A:
+
+  var bus = require('servicebus').<span class="apidocCodeKeywordSpan">bus</span>();
+  bus.listen('my.event', function (event) {
+    console.log(event);
+  });
+
+Process B:
+
+  var bus = require('servicebus').bus();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.super_" id="apidoc.element.servicebus.bus.super_">
+        function <span class="apidocSignatureSpan">servicebus.bus.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.bus.prototype" id="apidoc.module.servicebus.bus.prototype">module servicebus.bus.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.correlate" id="apidoc.element.servicebus.bus.prototype.correlate">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>correlate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">correlate = function () {
+  return {
+    handleOutgoing: addCorrelationId
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   throw new Error('Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
+ to use.');
+
+ var busUrl = process.env.RABBITMQ_URL
+
+ var bus = require('../').bus({ url: busUrl });
+
+ bus.use(bus.package());
+ bus.use(bus.<span class="apidocCodeKeywordSpan">correlate</span>());
+ bus.use(bus.logger());
+
+ module.exports.bus = bus;
+```
+
+Middleware may define one or two functions to modify incoming or outgoing messages:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.correlationId" id="apidoc.element.servicebus.bus.prototype.correlationId">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>correlationId
+        <span class="apidocSignatureSpan">(forceNew)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">correlationId = function (forceNew) {
+  if (process.domain &amp;&amp; process.domain.correlationId &amp;&amp; ! forceNew) {
+    return process.domain.correlationId;
+  }
+  return readableId();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.createCorrelationId" id="apidoc.element.servicebus.bus.prototype.createCorrelationId">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>createCorrelationId
+        <span class="apidocSignatureSpan">(forceNew)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createCorrelationId = function (forceNew) {
+  if (process.domain &amp;&amp; process.domain.correlationId &amp;&amp; ! forceNew) {
+    return process.domain.correlationId;
+  }
+  return readableId();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.handleIncoming" id="apidoc.element.servicebus.bus.prototype.handleIncoming">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>handleIncoming
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleIncoming = function () {
+  var index = this.incomingMiddleware.length - 1;
+  var self = this;
+
+  var args = Array.prototype.slice.call(arguments);
+
+  var callback = args.pop();
+
+  function next (err) {
+    if (err) return callback(err);
+
+    var layer;
+    var args = Array.prototype.slice.call(arguments, 1);
+
+    layer = self.incomingMiddleware[index];
+
+    index = index - 1;
+
+    if ( undefined === layer) {
+      return callback.apply(self, args);
+    } else {
+      args.push(next);
+      return layer.apply(self, args);
+    }
+  }
+
+  args.unshift(null);
+
+  return next.apply(this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.handleOutgoing" id="apidoc.element.servicebus.bus.prototype.handleOutgoing">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>handleOutgoing
+        <span class="apidocSignatureSpan">(queueName, message, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleOutgoing = function (queueName, message, options, callback) {
+  if (typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+
+  var index = 0;
+  var self = this;
+
+
+  function next (err) {
+    if (err) return callback(err);
+
+    var layer;
+    var args = Array.prototype.slice.call(arguments, 1);
+
+    layer = self.outgoingMiddleware[index];
+
+    index++;
+
+    if ( undefined === layer) {
+      return callback.apply(self, args);
+    } else  {
+      args.push(next);
+      return layer.apply(self, args);
+    }
+  }
+
+  return next(null, queueName, message, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.logger" id="apidoc.element.servicebus.bus.prototype.logger">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>logger
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logger = function (options) {
+  options = options || {};
+  label = options.label || 'servicebus';
+  var log = options.log || debug(label);
+  fnIncoming = options.fnIncoming || function (channel, message, options, next) {
+    log(util.format('received %j via routingKey %s', message.content, message.fields.routingKey));
+  };
+  fnOutgoing = options.fnOutgoing || function (message, queueName) {
+    log(util.format('sending %j to %s', message, queueName));
+  };
+
+  function logIncoming (channel, message, options, next) {
+    fnIncoming(channel, message, options);
+    var args = Array.prototype.slice.call(arguments);
+    var next = args.pop();
+    args.unshift(null);
+    next.apply(this, args);
+  }
+
+  function logOutgoing (queueName, message, options, next) {
+    if (typeof options === 'function') {
+      next = options;
+      options = null;
+    }
+
+    fnOutgoing(message, queueName);
+    next(null, queueName, message, options);
+  }
+
+  return {
+    handleIncoming: logIncoming,
+    handleOutgoing: logOutgoing
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var busUrl = process.env.RABBITMQ_URL
+
+  var bus = require('../').bus({ url: busUrl });
+
+  bus.use(bus.package());
+  bus.use(bus.correlate());
+  bus.use(bus.<span class="apidocCodeKeywordSpan">logger</span>());
+
+  module.exports.bus = bus;
+```
+
+ Middleware may define one or two functions to modify incoming or outgoing messages:
+
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.messageDomain" id="apidoc.element.servicebus.bus.prototype.messageDomain">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>messageDomain
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function messageDomain(opts) {
+
+  opts = opts || {};
+
+  return {
+
+    handleIncoming: function json (channel, message, options, next) {
+
+      var d = domain.create();
+
+      if (opts.onError) {
+        d.on('error', function (err) {
+          if (opts.onError) {
+            opts.onError(err, message, channel, d);
+          } else {
+            throw err;
+          }
+        });
+      }
+
+      d.run(function() {
+
+        if (message.properties.correlationId) {
+          d.correlationId = message.properties.correlationId;
+        }
+
+        next.bind(this, null, channel, message, options)();
+
+      });
+
+    },
+
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.package" id="apidoc.element.servicebus.bus.prototype.package">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>package
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">package = function () {
+  return {
+    handleOutgoing: packageMessage,
+    handleIncoming: handleIncoming
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if ( ! process.env.RABBITMQ_URL)
+   throw new Error('Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
+ to use.');
+
+ var busUrl = process.env.RABBITMQ_URL
+
+ var bus = require('../').bus({ url: busUrl });
+
+ bus.use(bus.<span class="apidocCodeKeywordSpan">package</span>());
+ bus.use(bus.correlate());
+ bus.use(bus.logger());
+
+ module.exports.bus = bus;
+```
+
+Middleware may define one or two functions to modify incoming or outgoing messages:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.retry" id="apidoc.element.servicebus.bus.prototype.retry">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>retry
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">retry = function (options) {
+  throw new Error('bus.retry() middleware is deprecated. please use https://github.com/mateodelnorte/servicebus-retry instead')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.bus.prototype.use" id="apidoc.element.servicebus.bus.prototype.use">
+        function <span class="apidocSignatureSpan">servicebus.bus.prototype.</span>use
+        <span class="apidocSignatureSpan">(middleware)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">use = function (middleware) {
+  if (middleware.handleIncoming) this.incomingMiddleware.push(middleware.handleIncoming);
+  if (middleware.handleOutgoing) this.outgoingMiddleware.push(middleware.handleOutgoing);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if ( ! process.env.RABBITMQ_URL)
+   throw new Error('Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
+ to use.');
+
+ var busUrl = process.env.RABBITMQ_URL
+
+ var bus = require('../').bus({ url: busUrl });
+
+ bus.<span class="apidocCodeKeywordSpan">use</span>(bus.package());
+ bus.use(bus.correlate());
+ bus.use(bus.logger());
+
+ module.exports.bus = bus;
+```
+
+Middleware may define one or two functions to modify incoming or outgoing messages:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
