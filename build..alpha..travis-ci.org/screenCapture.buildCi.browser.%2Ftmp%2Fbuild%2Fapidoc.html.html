@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/mateodelnorte/servicebus"
-
-    >servicebus (v2.0.10)</a>
+    <a href="https://github.com/mateodelnorte/servicebus">servicebus (v2.0.10)</a>
 </h1>
 <h4>Simple service bus for sending events between processes using amqp.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.servicebus">module servicebus</a><ol>
 
@@ -475,19 +468,19 @@
 ## Sending and Receiving
 
   Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
- will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+ will send an event message called 'my.event' every second from process A to process B via RabbitMQ and print out the
 sent event:
 
   Process A:
 ```js
-var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
-bus.listen(&#x27;my.event&#x27;, function (event) {
+var bus = require('servicebus').<span class="apidocCodeKeywordSpan">bus</span>();
+bus.listen('my.event', function (event) {
   console.log(event);
 });
 ```
   Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 ...</pre></li>
     </ul>
 
@@ -504,21 +497,21 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   this.initialized = false;
   this.queues = {};
 
-  // note: if you want to cluster servicebus, provide a &#x27;queuesfile&#x27; option param when calling .bus(options). you&#x27;ll likely do a
+  // note: if you want to cluster servicebus, provide a 'queuesfile' option param when calling .bus(options). you'll likely do a
  mod of the cluster.worker.id in your cluster.js file when you call fork();
-  if (cluster.isWorker &#x26;&#x26; options.queuesFile === undefined) warn(&#x27;Warning, to use subscriptions in a clustered app, you should specify
- a queuesFile option when calling .bus(options). You may want to provide something like util.format(\&#x27;.queues.worker.%s\&#x27;, (cluster.worker.id % cluster.workers.length)).&#x27;);
+  if (cluster.isWorker &amp;&amp; options.queuesFile === undefined) warn('Warning, to use subscriptions in a clustered app, you should specify
+ a queuesFile option when calling .bus(options). You may want to provide something like util.format(\'.queues.worker.%s\', (cluster.worker.id % cluster.workers.length)).');
 
   this.filename =
-    (options &#x26;&#x26; options.queuesFile) ? path.join(process.cwd(), options.queuesFile)
-      : (cluster.isWorker) ? path.join(process.cwd(), util.format(&#x27;.queues.worker.%s&#x27;, cluster.worker.id))
-        :path.join(process.cwd(), &#x27;.queues&#x27;);
+    (options &amp;&amp; options.queuesFile) ? path.join(process.cwd(), options.queuesFile)
+      : (cluster.isWorker) ? path.join(process.cwd(), util.format('.queues.worker.%s', cluster.worker.id))
+        :path.join(process.cwd(), '.queues');
 
   fs.readFile(this.filename, function (err, buf) {
     if (err) {
       this.queues = {};
       this.initialized = true;
-      this.emit(&#x27;ready&#x27;);
+      this.emit('ready');
       return;
     }
     try {
@@ -527,7 +520,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
       this.queues = {};
     }
     this.initialized = true;
-    this.emit(&#x27;ready&#x27;);
+    this.emit('ready');
   }.bind(this));
 
   events.EventEmitter.call(this);
@@ -570,14 +563,14 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 
   extend(queueOptions, {
     autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
-    contentType: options.contentType || &#x27;application/json&#x27;,
+    contentType: options.contentType || 'application/json',
     durable: Boolean(options.ack || options.acknowledge),
     exclusive: options.exclusive || false,
     persistent: Boolean(options.ack || options.acknowledge || options.persistent)
   });
 
   extend(exchangeOptions, {
-    type: exchangeOptions.type || &#x27;topic&#x27;,
+    type: exchangeOptions.type || 'topic',
     durable: exchangeOptions.durable === false ? false : true,
     autoDelete: exchangeOptions.autoDelete || false
   });
@@ -586,8 +579,8 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   this.bus = options.bus;
   this.confirmChannel = options.confirmChannel;
   this.correlator = options.correlator;
-  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
-  this.exchangeName = options.exchangeName || this.bus.exchangeName || &#x27;amq.topic&#x27;;
+  this.errorQueueName = options.queueName + '.error';
+  this.exchangeName = options.exchangeName || this.bus.exchangeName || 'amq.topic';
   this.exchangeOptions = exchangeOptions;
   this.formatter = options.formatter;
   this.initialized = false;
@@ -601,11 +594,11 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   this.routingKey = options.routingKey;
   this.sendChannel = options.sendChannel;
 
-  this.log(&#x27;asserting exchange %s&#x27;, this.exchangeName);
-  this.sendChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+  this.log('asserting exchange %s', this.exchangeName);
+  this.sendChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || 'topic', this.exchangeOptions);
 
   if (this.confirmChannel) {
-    this.confirmChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+    this.confirmChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || 'topic', this.exchangeOptions);
   }
 
   events.EventEmitter.call(this);
@@ -630,7 +623,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 
   extend(queueOptions, {
     autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
-    contentType: options.contentType || &#x27;application/json&#x27;,
+    contentType: options.contentType || 'application/json',
     durable: Boolean(options.ack || options.acknowledge),
     exclusive: options.exclusive || false,
     persistent: Boolean(options.ack || options.acknowledge || options.persistent)
@@ -640,7 +633,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   this.assertQueue = (options.assertQueue === undefined) ? true : options.assertQueue;
   this.bus = options.bus;
   this.confirmChannel = options.confirmChannel;
-  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
+  this.errorQueueName = options.queueName + '.error';
   this.formatter = options.formatter;
   this.initialized = false;
   this.listening = false;
@@ -659,30 +652,30 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 
   var self = this;
 
-  this.log(&#x27;asserting queue %s&#x27;, this.queueName);
+  this.log('asserting queue %s', this.queueName);
 
   if ( ! this.assertQueue) {
     self.initialized = true;
-    self.emit(&#x27;ready&#x27;);
+    self.emit('ready');
   } else {
     this.listenChannel.assertQueue(this.queueName, this.queueOptions).then(function (_qok) {
       if (self.ack) {
-        self.log(&#x27;asserting error queue %s&#x27;, self.errorQueueName);
+        self.log('asserting error queue %s', self.errorQueueName);
         var errorQueueOptions = extend(self.queueOptions, {
           autoDelete: options.autoDeleteErrorQueue || false
         });
         self.listenChannel.assertQueue(self.errorQueueName, self.queueOptions)
         .then(function (_qok) {
           self.initialized = true;
-          self.emit(&#x27;ready&#x27;);
+          self.emit('ready');
         });
       } else {
         self.initialized = true;
-        self.emit(&#x27;ready&#x27;);
+        self.emit('ready');
       }
     }).catch(function (err) {
-      self.log(&#x27;error connecting to queue %s. error: %s&#x27;, options.queueName, err.toString());
-      self.emit(&#x27;error&#x27;, err);
+      self.log('error connecting to queue %s. error: %s', options.queueName, err.toString());
+      self.emit('error', err);
     });
   }
 
@@ -727,19 +720,19 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 ## Sending and Receiving
 
   Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
- will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+ will send an event message called 'my.event' every second from process A to process B via RabbitMQ and print out the
 sent event:
 
   Process A:
 ```js
-var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
-bus.listen(&#x27;my.event&#x27;, function (event) {
+var bus = require('servicebus').<span class="apidocCodeKeywordSpan">bus</span>();
+bus.listen('my.event', function (event) {
   console.log(event);
 });
 ```
   Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 ...</pre></li>
     </ul>
 
@@ -778,12 +771,12 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   };
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-   throw new Error(&#x27;Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
- to use.&#x27;);
+   throw new Error('Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
+ to use.');
 
  var busUrl = process.env.RABBITMQ_URL
 
- var bus = require(&#x27;../&#x27;).bus({ url: busUrl });
+ var bus = require('../').bus({ url: busUrl });
 
  bus.use(bus.package());
  bus.use(bus.<span class="apidocCodeKeywordSpan">correlate</span>());
@@ -806,7 +799,7 @@ Middleware may define one or two functions to modify incoming or outgoing messag
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">correlationId = function (forceNew) {
-  if (process.domain &#x26;&#x26; process.domain.correlationId &#x26;&#x26; ! forceNew) {
+  if (process.domain &amp;&amp; process.domain.correlationId &amp;&amp; ! forceNew) {
     return process.domain.correlationId;
   }
   return readableId();
@@ -824,7 +817,7 @@ Middleware may define one or two functions to modify incoming or outgoing messag
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">createCorrelationId = function (forceNew) {
-  if (process.domain &#x26;&#x26; process.domain.correlationId &#x26;&#x26; ! forceNew) {
+  if (process.domain &amp;&amp; process.domain.correlationId &amp;&amp; ! forceNew) {
     return process.domain.correlationId;
   }
   return readableId();
@@ -878,13 +871,13 @@ if (message === null) {
 }
 // todo: map contentType to default formatters
 message.content = options.formatter.deserialize(message.content);
-options.queueType = &#x27;pubsubqueue&#x27;;
+options.queueType = 'pubsubqueue';
 self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenChannel, message, options, function (channel, message
 , options) {
   // amqplib intercepts errors and closes connections before bubbling up
   // to domain error handlers when they occur non-asynchronously within
   // callback. Therefore, if there is a process domain, we try-catch to
-  // redirect the error, assuming the domain creator&#x27;s intentions.
+  // redirect the error, assuming the domain creator's intentions.
   try {
     callback(message.content, message);
   } catch (err) {
@@ -901,7 +894,7 @@ self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenCh
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">handleOutgoing = function (queueName, message, options, callback) {
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     callback = options;
     options = null;
   }
@@ -944,13 +937,13 @@ self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenCh
     <ul>
     <li>description and source-code<pre class="apidocCodePre">logger = function (options) {
   options = options || {};
-  label = options.label || &#x27;servicebus&#x27;;
+  label = options.label || 'servicebus';
   var log = options.log || debug(label);
   fnIncoming = options.fnIncoming || function (channel, message, options, next) {
-    log(util.format(&#x27;received %j via routingKey %s&#x27;, message.content, message.fields.routingKey));
+    log(util.format('received %j via routingKey %s', message.content, message.fields.routingKey));
   };
   fnOutgoing = options.fnOutgoing || function (message, queueName) {
-    log(util.format(&#x27;sending %j to %s&#x27;, message, queueName));
+    log(util.format('sending %j to %s', message, queueName));
   };
 
   function logIncoming (channel, message, options, next) {
@@ -962,7 +955,7 @@ self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenCh
   }
 
   function logOutgoing (queueName, message, options, next) {
-    if (typeof options === &#x27;function&#x27;) {
+    if (typeof options === 'function') {
       next = options;
       options = null;
     }
@@ -980,7 +973,7 @@ self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenCh
 
   var busUrl = process.env.RABBITMQ_URL
 
-  var bus = require(&#x27;../&#x27;).bus({ url: busUrl });
+  var bus = require('../').bus({ url: busUrl });
 
   bus.use(bus.package());
   bus.use(bus.correlate());
@@ -1015,7 +1008,7 @@ self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenCh
       var d = domain.create();
 
       if (opts.onError) {
-        d.on(&#x27;error&#x27;, function (err) {
+        d.on('error', function (err) {
           if (opts.onError) {
             opts.onError(err, message, channel, d);
           } else {
@@ -1058,12 +1051,12 @@ self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenCh
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  if ( ! process.env.RABBITMQ_URL)
-   throw new Error(&#x27;Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
- to use.&#x27;);
+   throw new Error('Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
+ to use.');
 
  var busUrl = process.env.RABBITMQ_URL
 
- var bus = require(&#x27;../&#x27;).bus({ url: busUrl });
+ var bus = require('../').bus({ url: busUrl });
 
  bus.use(bus.<span class="apidocCodeKeywordSpan">package</span>());
  bus.use(bus.correlate());
@@ -1086,7 +1079,7 @@ Middleware may define one or two functions to modify incoming or outgoing messag
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">retry = function (options) {
-  throw new Error(&#x27;bus.retry() middleware is deprecated. please use https://github.com/mateodelnorte/servicebus-retry instead&#x27;)
+  throw new Error('bus.retry() middleware is deprecated. please use https://github.com/mateodelnorte/servicebus-retry instead')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -1096,8 +1089,8 @@ Middleware may define one or two functions to modify incoming or outgoing messag
 
 
 module.exports = function (options) {
-  throw new Error(&#x27;bus.<span class="apidocCodeKeywordSpan">retry</span>() middleware is deprecated. please use https://github
-.com/mateodelnorte/servicebus-retry instead&#x27;)
+  throw new Error('bus.<span class="apidocCodeKeywordSpan">retry</span>() middleware is deprecated. please use https://github
+.com/mateodelnorte/servicebus-retry instead')
 };
 ...</pre></li>
     </ul>
@@ -1118,12 +1111,12 @@ module.exports = function (options) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  if ( ! process.env.RABBITMQ_URL)
-   throw new Error(&#x27;Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
- to use.&#x27;);
+   throw new Error('Tests require a RABBITMQ_URL environment variable to be set, pointing to the RabbiqMQ instance you wish
+ to use.');
 
  var busUrl = process.env.RABBITMQ_URL
 
- var bus = require(&#x27;../&#x27;).bus({ url: busUrl });
+ var bus = require('../').bus({ url: busUrl });
 
  bus.<span class="apidocCodeKeywordSpan">use</span>(bus.package());
  bus.use(bus.correlate());
@@ -1154,21 +1147,21 @@ Middleware may define one or two functions to modify incoming or outgoing messag
   this.initialized = false;
   this.queues = {};
 
-  // note: if you want to cluster servicebus, provide a &#x27;queuesfile&#x27; option param when calling .bus(options). you&#x27;ll likely do a
+  // note: if you want to cluster servicebus, provide a 'queuesfile' option param when calling .bus(options). you'll likely do a
  mod of the cluster.worker.id in your cluster.js file when you call fork();
-  if (cluster.isWorker &#x26;&#x26; options.queuesFile === undefined) warn(&#x27;Warning, to use subscriptions in a clustered app, you should specify
- a queuesFile option when calling .bus(options). You may want to provide something like util.format(\&#x27;.queues.worker.%s\&#x27;, (cluster.worker.id % cluster.workers.length)).&#x27;);
+  if (cluster.isWorker &amp;&amp; options.queuesFile === undefined) warn('Warning, to use subscriptions in a clustered app, you should specify
+ a queuesFile option when calling .bus(options). You may want to provide something like util.format(\'.queues.worker.%s\', (cluster.worker.id % cluster.workers.length)).');
 
   this.filename =
-    (options &#x26;&#x26; options.queuesFile) ? path.join(process.cwd(), options.queuesFile)
-      : (cluster.isWorker) ? path.join(process.cwd(), util.format(&#x27;.queues.worker.%s&#x27;, cluster.worker.id))
-        :path.join(process.cwd(), &#x27;.queues&#x27;);
+    (options &amp;&amp; options.queuesFile) ? path.join(process.cwd(), options.queuesFile)
+      : (cluster.isWorker) ? path.join(process.cwd(), util.format('.queues.worker.%s', cluster.worker.id))
+        :path.join(process.cwd(), '.queues');
 
   fs.readFile(this.filename, function (err, buf) {
     if (err) {
       this.queues = {};
       this.initialized = true;
-      this.emit(&#x27;ready&#x27;);
+      this.emit('ready');
       return;
     }
     try {
@@ -1177,7 +1170,7 @@ Middleware may define one or two functions to modify incoming or outgoing messag
       this.queues = {};
     }
     this.initialized = true;
-    this.emit(&#x27;ready&#x27;);
+    this.emit('ready');
   }.bind(this));
 
   events.EventEmitter.call(this);
@@ -1222,7 +1215,7 @@ Middleware may define one or two functions to modify incoming or outgoing messag
   } else if (options.routingKey) {
     result = options.queueName;
   } else {
-    result = util.format(&#x27;%s.%s&#x27;, options.queueName, newId());
+    result = util.format('%s.%s', options.queueName, newId());
     this.queues[options.queueName] = result;
   }
 
@@ -1249,7 +1242,7 @@ Correlator.prototype.persistQueueFile = function (callback) {
     <li>description and source-code<pre class="apidocCodePre">function queueName(options, callback) {
 
   if ( ! this.initialized) {
-    return this.on(&#x27;ready&#x27;, queueName.bind(this, options, callback));
+    return this.on('ready', queueName.bind(this, options, callback));
   }
 
   var result;
@@ -1259,7 +1252,7 @@ Correlator.prototype.persistQueueFile = function (callback) {
   } else if (options.routingKey) {
     result = options.queueName;
   } else {
-    result = util.format(&#x27;%s.%s&#x27;, options.queueName, newId());
+    result = util.format('%s.%s', options.queueName, newId());
     this.queues[options.queueName] = result;
   }
 
@@ -1273,7 +1266,7 @@ Correlator.prototype.persistQueueFile = function (callback) {
     .then(function (ok) {
       subscribed = true;
       subscription = { consumerTag: ok.consumerTag };
-      self.emit(&#x27;subscribed&#x27;);
+      self.emit('subscribed');
     });
 }
 
@@ -1284,7 +1277,7 @@ self.correlator.<span class="apidocCodeKeywordSpan">queueName</span>(options, fu
       return self.listenChannel.bindQueue(uniqueName, self.exchangeName, self.routingKey || self.queueName);
     }).then(function () {
       if (self.ack) {
-        self.log(&#x27;asserting error queue &#x27; + self.errorQueueName);
+        self.log('asserting error queue ' + self.errorQueueName);
 ...</pre></li>
     </ul>
 
@@ -1310,19 +1303,19 @@ self.correlator.<span class="apidocCodeKeywordSpan">queueName</span>(options, fu
 ## Sending and Receiving
 
   Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
- will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+ will send an event message called 'my.event' every second from process A to process B via RabbitMQ and print out the
 sent event:
 
   Process A:
 ```js
-var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
-bus.listen(&#x27;my.event&#x27;, function (event) {
+var bus = require('servicebus').<span class="apidocCodeKeywordSpan">bus</span>();
+bus.listen('my.event', function (event) {
   console.log(event);
 });
 ```
   Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 ...</pre></li>
     </ul>
 
@@ -1379,12 +1372,12 @@ if (message === null) {
 }
 // todo: map contentType to default formatters
 message.content = options.formatter.<span class="apidocCodeKeywordSpan">deserialize</span>(message.content);
-options.queueType = &#x27;pubsubqueue&#x27;;
+options.queueType = 'pubsubqueue';
 self.bus.handleIncoming(self.listenChannel, message, options, function (channel, message, options) {
   // amqplib intercepts errors and closes connections before bubbling up
   // to domain error handlers when they occur non-asynchronously within
   // callback. Therefore, if there is a process domain, we try-catch to
-  // redirect the error, assuming the domain creator&#x27;s intentions.
+  // redirect the error, assuming the domain creator's intentions.
   try {
 ...</pre></li>
     </ul>
@@ -1450,14 +1443,14 @@ var subscription = null;
 
   extend(queueOptions, {
     autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
-    contentType: options.contentType || &#x27;application/json&#x27;,
+    contentType: options.contentType || 'application/json',
     durable: Boolean(options.ack || options.acknowledge),
     exclusive: options.exclusive || false,
     persistent: Boolean(options.ack || options.acknowledge || options.persistent)
   });
 
   extend(exchangeOptions, {
-    type: exchangeOptions.type || &#x27;topic&#x27;,
+    type: exchangeOptions.type || 'topic',
     durable: exchangeOptions.durable === false ? false : true,
     autoDelete: exchangeOptions.autoDelete || false
   });
@@ -1466,8 +1459,8 @@ var subscription = null;
   this.bus = options.bus;
   this.confirmChannel = options.confirmChannel;
   this.correlator = options.correlator;
-  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
-  this.exchangeName = options.exchangeName || this.bus.exchangeName || &#x27;amq.topic&#x27;;
+  this.errorQueueName = options.queueName + '.error';
+  this.exchangeName = options.exchangeName || this.bus.exchangeName || 'amq.topic';
   this.exchangeOptions = exchangeOptions;
   this.formatter = options.formatter;
   this.initialized = false;
@@ -1481,11 +1474,11 @@ var subscription = null;
   this.routingKey = options.routingKey;
   this.sendChannel = options.sendChannel;
 
-  this.log(&#x27;asserting exchange %s&#x27;, this.exchangeName);
-  this.sendChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+  this.log('asserting exchange %s', this.exchangeName);
+  this.sendChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || 'topic', this.exchangeOptions);
 
   if (this.confirmChannel) {
-    this.confirmChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+    this.confirmChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || 'topic', this.exchangeOptions);
   }
 
   events.EventEmitter.call(this);
@@ -1541,10 +1534,10 @@ cb);
 ```
 Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 
 setInterval(function () {
-bus.<span class="apidocCodeKeywordSpan">publish</span>(&#x27;my.event&#x27;, { my: &#x27;event&#x27; });
+bus.<span class="apidocCodeKeywordSpan">publish</span>('my.event', { my: 'event' });
 }, 1000);
 ```
 # Topic Routing
@@ -1569,7 +1562,7 @@ To use topic routing to accept multiple events in a single handler, use publish 
   var subscribed = false;
   var subscription = null;
 
-  this.log(&#x27;subscribing to queue %j with routingKey %j&#x27;, this.queueName, this.routingKey);
+  this.log('subscribing to queue %j with routingKey %j', this.queueName, this.routingKey);
 
   function _unsubscribe (cb) {
     if (subscribed) {
@@ -1577,13 +1570,13 @@ To use topic routing to accept multiple events in a single handler, use publish 
       self.listenChannel
         .cancel(subscription.consumerTag)
         .then(function () {
-          self.emit(&#x27;unlistened&#x27;);
+          self.emit('unlistened');
           if (cb) {
             cb();
           }
         });
     } else {
-      self.on(&#x27;subscribed&#x27;, _unsubscribe.bind(this, cb));
+      self.on('subscribed', _unsubscribe.bind(this, cb));
     }
   }
 
@@ -1591,7 +1584,7 @@ To use topic routing to accept multiple events in a single handler, use publish 
     self.listenChannel.consume(uniqueName, function (message) {
 <span class="apidocCodeCommentSpan">      /*
           Note from http://www.squaremobius.net/amqp.node/doc/channel_api.html
-          &#x26; http://www.rabbitmq.com/consumer-cancel.html:
+          &amp; http://www.rabbitmq.com/consumer-cancel.html:
 
           If the consumer is cancelled by RabbitMQ, the message callback will be invoked with null.
         */
@@ -1600,19 +1593,19 @@ To use topic routing to accept multiple events in a single handler, use publish 
       }
       // todo: map contentType to default formatters
       message.content = options.formatter.deserialize(message.content);
-      options.queueType = &#x27;pubsubqueue&#x27;;
+      options.queueType = 'pubsubqueue';
       self.bus.handleIncoming(self.listenChannel, message, options, function (channel, message, options) {
         // amqplib intercepts errors and closes connections before bubbling up
         // to domain error handlers when they occur non-asynchronously within
         // callback. Therefore, if there is a process domain, we try-catch to
-        // redirect the error, assuming the domain creator&#x27;s intentions.
+        // redirect the error, assuming the domain creator's intentions.
         try {
           callback(message.content, message);
         } catch (err) {
-          if (process.domain &#x26;&#x26; process.domain.listeners(&#x27;error&#x27;)) {
-            process.domain.emit(&#x27;error&#x27;, err);
+          if (process.domain &amp;&amp; process.domain.listeners('error')) {
+            process.domain.emit('error', err);
           } else {
-            self.emit(&#x27;error&#x27;, err);
+            self.emit('error', err);
           }
         }
       });
@@ -1620,7 +1613,7 @@ To use topic routing to accept multiple events in a single handler, use publish 
       .then(function (ok) {
         subscribed = true;
         subscription = { consumerTag: ok.consumerTag };
-        self.emit(&#x27;subscribed&#x27;);
+        self.emit('subscribed');
       });
   }
 
@@ -1631,7 +1624,7 @@ To use topic routing to accept multiple events in a single handler, use publish 
         return self.listenChannel.bindQueue(uniqueName, self.exchangeName, self.routingKey || self.queueName);
       }).then(function () {
         if (self.ack) {
-          self.log(&#x27;asserting error queue &#x27; + self.errorQueueName);
+          self.log('asserting error queue ' + self.errorQueueName);
           var errorQueueOptions = extend(self.queueOptions, {
             autoDelete: options.autoDeleteErrorQueue || false
           });
@@ -1657,14 +1650,14 @@ To use topic routing to accept multiple events in a single handler, use publish 
 
   Process A (can be run any number of times, all will receive the event):
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
-bus.<span class="apidocCodeKeywordSpan">subscribe</span>(&#x27;my.event&#x27;, function (event) {
+var bus = require('servicebus').bus();
+bus.<span class="apidocCodeKeywordSpan">subscribe</span>('my.event', function (event) {
   console.log(event);
 });
 ```
   Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 ...</pre></li>
     </ul>
 
@@ -1688,7 +1681,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 
   extend(queueOptions, {
     autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
-    contentType: options.contentType || &#x27;application/json&#x27;,
+    contentType: options.contentType || 'application/json',
     durable: Boolean(options.ack || options.acknowledge),
     exclusive: options.exclusive || false,
     persistent: Boolean(options.ack || options.acknowledge || options.persistent)
@@ -1698,7 +1691,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   this.assertQueue = (options.assertQueue === undefined) ? true : options.assertQueue;
   this.bus = options.bus;
   this.confirmChannel = options.confirmChannel;
-  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
+  this.errorQueueName = options.queueName + '.error';
   this.formatter = options.formatter;
   this.initialized = false;
   this.listening = false;
@@ -1717,30 +1710,30 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 
   var self = this;
 
-  this.log(&#x27;asserting queue %s&#x27;, this.queueName);
+  this.log('asserting queue %s', this.queueName);
 
   if ( ! this.assertQueue) {
     self.initialized = true;
-    self.emit(&#x27;ready&#x27;);
+    self.emit('ready');
   } else {
     this.listenChannel.assertQueue(this.queueName, this.queueOptions).then(function (_qok) {
       if (self.ack) {
-        self.log(&#x27;asserting error queue %s&#x27;, self.errorQueueName);
+        self.log('asserting error queue %s', self.errorQueueName);
         var errorQueueOptions = extend(self.queueOptions, {
           autoDelete: options.autoDeleteErrorQueue || false
         });
         self.listenChannel.assertQueue(self.errorQueueName, self.queueOptions)
         .then(function (_qok) {
           self.initialized = true;
-          self.emit(&#x27;ready&#x27;);
+          self.emit('ready');
         });
       } else {
         self.initialized = true;
-        self.emit(&#x27;ready&#x27;);
+        self.emit('ready');
       }
     }).catch(function (err) {
-      self.log(&#x27;error connecting to queue %s. error: %s&#x27;, options.queueName, err.toString());
-      self.emit(&#x27;error&#x27;, err);
+      self.log('error connecting to queue %s. error: %s', options.queueName, err.toString());
+      self.emit('error', err);
     });
   }
 
@@ -1780,12 +1773,12 @@ var bus = require(&#x27;servicebus&#x27;).bus();
     <li>description and source-code<pre class="apidocCodePre">function destroy(options) {
   options = options || {};
   var em = new EventEmitter();
-  this.log(&#x27;deleting queue %s&#x27;, this.queueName);
+  this.log('deleting queue %s', this.queueName);
   this.listenChannel.deleteQueue(this.queueName)
     .then(function (ok) {
-      em.emit(&#x27;success&#x27;);
+      em.emit('success');
     });
-  if (this.errorQueueName &#x26;&#x26; this.ack) {
+  if (this.errorQueueName &amp;&amp; this.ack) {
     this.listenChannel.deleteQueue(this.errorQueueName, { ifEmpty: true });
   }
   return em;
@@ -1808,16 +1801,16 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 
   var self = this;
 
-  this.log(&#x27;listening to queue %j&#x27;, this.queueName);
+  this.log('listening to queue %j', this.queueName);
 
   if ( ! this.initialized) {
-    return this.on(&#x27;ready&#x27;, listen.bind(this, callback, options));
+    return this.on('ready', listen.bind(this, callback, options));
   }
 
   this.listenChannel.consume(this.queueName, function (message) {
 <span class="apidocCodeCommentSpan">    /*
         Note from http://www.squaremobius.net/amqp.node/doc/channel_api.html
-        &#x26; http://www.rabbitmq.com/consumer-cancel.html:
+        &amp; http://www.rabbitmq.com/consumer-cancel.html:
 
         If the consumer is cancelled by RabbitMQ, the message callback will be invoked with null.
       */
@@ -1825,19 +1818,19 @@ var bus = require(&#x27;servicebus&#x27;).bus();
       return;
     }
     message.content = options.formatter.deserialize(message.content);
-    options.queueType = &#x27;queue&#x27;;
+    options.queueType = 'queue';
     self.bus.handleIncoming(self.listenChannel, message, options, function (channel, message, options) {
       // amqplib intercepts errors and closes connections before bubbling up
       // to domain error handlers when they occur non-asynchronously within
       // callback. Therefore, if there is a process domain, we try-catch to
-      // redirect the error, assuming the domain creator&#x27;s intentions.
+      // redirect the error, assuming the domain creator's intentions.
       try {
         callback(message.content, message);
       } catch (err) {
-        if (process.domain &#x26;&#x26; process.domain.listeners(&#x27;error&#x27;)) {
-          process.domain.emit(&#x27;error&#x27;, err);
+        if (process.domain &amp;&amp; process.domain.listeners('error')) {
+          process.domain.emit('error', err);
         } else {
-          self.emit(&#x27;error&#x27;, err);
+          self.emit('error', err);
         }
       }
     });
@@ -1845,7 +1838,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
     .then(function (ok) {
       self.listening = true;
       self.subscription = { consumerTag: ok.consumerTag };
-      self.emit(&#x27;listening&#x27;);
+      self.emit('listening');
     });
 
 }</pre></li>
@@ -1853,19 +1846,19 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 ## Sending and Receiving
 
   Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
- will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+ will send an event message called 'my.event' every second from process A to process B via RabbitMQ and print out the
 sent event:
 
   Process A:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
-bus.<span class="apidocCodeKeywordSpan">listen</span>(&#x27;my.event&#x27;, function (event) {
+var bus = require('servicebus').bus();
+bus.<span class="apidocCodeKeywordSpan">listen</span>('my.event', function (event) {
   console.log(event);
 });
 ```
   Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 ...</pre></li>
     </ul>
 
@@ -1883,7 +1876,7 @@ var bus = require(&#x27;servicebus&#x27;).bus();
   var self = this;
 
   if ( ! this.initialized) {
-    return this.on(&#x27;ready&#x27;, send.bind(this, event, options, cb));
+    return this.on('ready', send.bind(this, event, options, cb));
   }
 
   options.contentType = options.contentType || this.contentType;
@@ -1899,10 +1892,10 @@ var bus = require(&#x27;servicebus&#x27;).bus();
 ```
   Process B:
 ```js
-var bus = require(&#x27;servicebus&#x27;).bus();
+var bus = require('servicebus').bus();
 
 setInterval(function () {
-  bus.<span class="apidocCodeKeywordSpan">send</span>(&#x27;my.event&#x27;, { my: &#x27;event&#x27; });
+  bus.<span class="apidocCodeKeywordSpan">send</span>('my.event', { my: 'event' });
 }, 1000);
 ```
 ## Round-Robin Load Distribution
@@ -1932,11 +1925,11 @@ setInterval(function () {
       .then(function (err, ok) {
       delete self.subscription;
       self.listening = false;
-      self.bus.emit(&#x27;unlistened&#x27;, self);
-      em.emit(&#x27;success&#x27;);
+      self.bus.emit('unlistened', self);
+      em.emit('success');
     });
   } else {
-    this.on(&#x27;listening&#x27;, unlisten.bind(this));
+    this.on('listening', unlisten.bind(this));
   }
 
   return em;
@@ -1953,3 +1946,4 @@ setInterval(function () {
     ]
 </div>
 </div>
+</body></html>

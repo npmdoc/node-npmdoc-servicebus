@@ -51,7 +51,7 @@
 
         href="https://github.com/mateodelnorte/servicebus"
 
-    >servicebus (v2.0.9)</a>
+    >servicebus (v2.0.10)</a>
 </h1>
 <h4>Simple service bus for sending events between processes using amqp.</h4>
 <div class="apidocSectionDiv"><a
@@ -72,6 +72,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.correlator">
+            function <span class="apidocSignatureSpan">servicebus.</span>correlator
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.servicebus.namedBus">
             function <span class="apidocSignatureSpan">servicebus.</span>namedBus
             <span class="apidocSignatureSpan">(name, options, implOpts)</span>
@@ -81,7 +90,55 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.pubsubqueue">
+            function <span class="apidocSignatureSpan">servicebus.</span>pubsubqueue
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue">
+            function <span class="apidocSignatureSpan">servicebus.</span>queue
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>bus.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>correlator.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>index</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>json</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>pubsubqueue.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">servicebus.</span>queue.prototype</span>
 
         </li>
 
@@ -203,6 +260,200 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.correlator">module servicebus.correlator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.correlator.correlator">
+            function <span class="apidocSignatureSpan">servicebus.</span>correlator
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.correlator.super_">
+            function <span class="apidocSignatureSpan">servicebus.correlator.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.correlator.prototype">module servicebus.correlator.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.correlator.prototype.persistQueueFile">
+            function <span class="apidocSignatureSpan">servicebus.correlator.prototype.</span>persistQueueFile
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.correlator.prototype.queueName">
+            function <span class="apidocSignatureSpan">servicebus.correlator.prototype.</span>queueName
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.index">module servicebus.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.index.bus">
+            function <span class="apidocSignatureSpan">servicebus.index.</span>bus
+            <span class="apidocSignatureSpan">(options, implOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.index.namedBus">
+            function <span class="apidocSignatureSpan">servicebus.index.</span>namedBus
+            <span class="apidocSignatureSpan">(name, options, implOpts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.json">module servicebus.json</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.json.deserialize">
+            function <span class="apidocSignatureSpan">servicebus.json.</span>deserialize
+            <span class="apidocSignatureSpan">(content)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.json.serialize">
+            function <span class="apidocSignatureSpan">servicebus.json.</span>serialize
+            <span class="apidocSignatureSpan">(content)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.pubsubqueue">module servicebus.pubsubqueue</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.pubsubqueue.pubsubqueue">
+            function <span class="apidocSignatureSpan">servicebus.</span>pubsubqueue
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.pubsubqueue.super_">
+            function <span class="apidocSignatureSpan">servicebus.pubsubqueue.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.pubsubqueue.prototype">module servicebus.pubsubqueue.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.pubsubqueue.prototype.publish">
+            function <span class="apidocSignatureSpan">servicebus.pubsubqueue.prototype.</span>publish
+            <span class="apidocSignatureSpan">(event, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.pubsubqueue.prototype.subscribe">
+            function <span class="apidocSignatureSpan">servicebus.pubsubqueue.prototype.</span>subscribe
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.queue">module servicebus.queue</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue.queue">
+            function <span class="apidocSignatureSpan">servicebus.</span>queue
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue.super_">
+            function <span class="apidocSignatureSpan">servicebus.queue.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.servicebus.queue.prototype">module servicebus.queue.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue.prototype.destroy">
+            function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue.prototype.listen">
+            function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>listen
+            <span class="apidocSignatureSpan">(callback, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue.prototype.send">
+            function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>send
+            <span class="apidocSignatureSpan">(event, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.servicebus.queue.prototype.unlisten">
+            function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>unlisten
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -223,21 +474,65 @@
 
 ## Sending and Receiving
 
-Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes will
- send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the sent
-event:
+  Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
+ will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+sent event:
 
-Process A:
-
-  var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
-  bus.listen(&#x27;my.event&#x27;, function (event) {
-    console.log(event);
-  });
-
-Process B:
-
-  var bus = require(&#x27;servicebus&#x27;).bus();
+  Process A:
+```js
+var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
+bus.listen(&#x27;my.event&#x27;, function (event) {
+  console.log(event);
+});
+```
+  Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
 ...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.correlator" id="apidoc.element.servicebus.correlator">
+        function <span class="apidocSignatureSpan">servicebus.</span>correlator
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Correlator(options) {
+  this.initialized = false;
+  this.queues = {};
+
+  // note: if you want to cluster servicebus, provide a &#x27;queuesfile&#x27; option param when calling .bus(options). you&#x27;ll likely do a
+ mod of the cluster.worker.id in your cluster.js file when you call fork();
+  if (cluster.isWorker &#x26;&#x26; options.queuesFile === undefined) warn(&#x27;Warning, to use subscriptions in a clustered app, you should specify
+ a queuesFile option when calling .bus(options). You may want to provide something like util.format(\&#x27;.queues.worker.%s\&#x27;, (cluster.worker.id % cluster.workers.length)).&#x27;);
+
+  this.filename =
+    (options &#x26;&#x26; options.queuesFile) ? path.join(process.cwd(), options.queuesFile)
+      : (cluster.isWorker) ? path.join(process.cwd(), util.format(&#x27;.queues.worker.%s&#x27;, cluster.worker.id))
+        :path.join(process.cwd(), &#x27;.queues&#x27;);
+
+  fs.readFile(this.filename, function (err, buf) {
+    if (err) {
+      this.queues = {};
+      this.initialized = true;
+      this.emit(&#x27;ready&#x27;);
+      return;
+    }
+    try {
+      this.queues = JSON.parse(buf.toString());
+    } catch (error) {
+      this.queues = {};
+    }
+    this.initialized = true;
+    this.emit(&#x27;ready&#x27;);
+  }.bind(this));
+
+  events.EventEmitter.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -258,6 +553,152 @@ Process B:
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.pubsubqueue" id="apidoc.element.servicebus.pubsubqueue">
+        function <span class="apidocSignatureSpan">servicebus.</span>pubsubqueue
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PubSubQueue(options) {
+  options = options || {};
+  var exchangeOptions = options.exchangeOptions || {};
+  var queueOptions = options.queueOptions || {};
+
+  extend(queueOptions, {
+    autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
+    contentType: options.contentType || &#x27;application/json&#x27;,
+    durable: Boolean(options.ack || options.acknowledge),
+    exclusive: options.exclusive || false,
+    persistent: Boolean(options.ack || options.acknowledge || options.persistent)
+  });
+
+  extend(exchangeOptions, {
+    type: exchangeOptions.type || &#x27;topic&#x27;,
+    durable: exchangeOptions.durable === false ? false : true,
+    autoDelete: exchangeOptions.autoDelete || false
+  });
+
+  this.ack = (options.ack || options.acknowledge);
+  this.bus = options.bus;
+  this.confirmChannel = options.confirmChannel;
+  this.correlator = options.correlator;
+  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
+  this.exchangeName = options.exchangeName || this.bus.exchangeName || &#x27;amq.topic&#x27;;
+  this.exchangeOptions = exchangeOptions;
+  this.formatter = options.formatter;
+  this.initialized = false;
+  this.listening = false;
+  this.listenChannel = options.listenChannel;
+  this.log = options.log;
+  this.maxRetries = options.maxRetries || 3;
+  this.queueName = options.queueName;
+  this.queueOptions = queueOptions;
+  this.rejected = {};
+  this.routingKey = options.routingKey;
+  this.sendChannel = options.sendChannel;
+
+  this.log(&#x27;asserting exchange %s&#x27;, this.exchangeName);
+  this.sendChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+
+  if (this.confirmChannel) {
+    this.confirmChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+  }
+
+  events.EventEmitter.call(this);
+
+  this.setMaxListeners(Infinity);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue" id="apidoc.element.servicebus.queue">
+        function <span class="apidocSignatureSpan">servicebus.</span>queue
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Queue(options) {
+  options = options || {};
+  var queueOptions = options.queueOptions || {};
+
+  extend(queueOptions, {
+    autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
+    contentType: options.contentType || &#x27;application/json&#x27;,
+    durable: Boolean(options.ack || options.acknowledge),
+    exclusive: options.exclusive || false,
+    persistent: Boolean(options.ack || options.acknowledge || options.persistent)
+  });
+
+  this.ack = (options.ack || options.acknowledge);
+  this.assertQueue = (options.assertQueue === undefined) ? true : options.assertQueue;
+  this.bus = options.bus;
+  this.confirmChannel = options.confirmChannel;
+  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
+  this.formatter = options.formatter;
+  this.initialized = false;
+  this.listening = false;
+  this.listenChannel = options.listenChannel;
+  this.log = options.log;
+  this.maxRetries = options.maxRetries || 3;
+  this.queueName = options.queueName;
+  this.queueOptions = queueOptions;
+  this.rejected = {};
+  this.routingKey = options.routingKey;
+  this.sendChannel = options.sendChannel;
+
+  EventEmitter.call(this);
+
+  this.setMaxListeners(Infinity);
+
+  var self = this;
+
+  this.log(&#x27;asserting queue %s&#x27;, this.queueName);
+
+  if ( ! this.assertQueue) {
+    self.initialized = true;
+    self.emit(&#x27;ready&#x27;);
+  } else {
+    this.listenChannel.assertQueue(this.queueName, this.queueOptions).then(function (_qok) {
+      if (self.ack) {
+        self.log(&#x27;asserting error queue %s&#x27;, self.errorQueueName);
+        var errorQueueOptions = extend(self.queueOptions, {
+          autoDelete: options.autoDeleteErrorQueue || false
+        });
+        self.listenChannel.assertQueue(self.errorQueueName, self.queueOptions)
+        .then(function (_qok) {
+          self.initialized = true;
+          self.emit(&#x27;ready&#x27;);
+        });
+      } else {
+        self.initialized = true;
+        self.emit(&#x27;ready&#x27;);
+      }
+    }).catch(function (err) {
+      self.log(&#x27;error connecting to queue %s. error: %s&#x27;, options.queueName, err.toString());
+      self.emit(&#x27;error&#x27;, err);
+    });
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -285,20 +726,20 @@ Process B:
 
 ## Sending and Receiving
 
-Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes will
- send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the sent
-event:
+  Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
+ will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+sent event:
 
-Process A:
-
-  var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
-  bus.listen(&#x27;my.event&#x27;, function (event) {
-    console.log(event);
-  });
-
-Process B:
-
-  var bus = require(&#x27;servicebus&#x27;).bus();
+  Process A:
+```js
+var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
+bus.listen(&#x27;my.event&#x27;, function (event) {
+  console.log(event);
+});
+```
+  Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
 ...</pre></li>
     </ul>
 
@@ -430,7 +871,24 @@ Middleware may define one or two functions to modify incoming or outgoing messag
 
   return next.apply(this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  */
+if (message === null) {
+  return;
+}
+// todo: map contentType to default formatters
+message.content = options.formatter.deserialize(message.content);
+options.queueType = &#x27;pubsubqueue&#x27;;
+self.bus.<span class="apidocCodeKeywordSpan">handleIncoming</span>(self.listenChannel, message, options, function (channel, message
+, options) {
+  // amqplib intercepts errors and closes connections before bubbling up
+  // to domain error handlers when they occur non-asynchronously within
+  // callback. Therefore, if there is a process domain, we try-catch to
+  // redirect the error, assuming the domain creator&#x27;s intentions.
+  try {
+    callback(message.content, message);
+  } catch (err) {
+...</pre></li>
     </ul>
 
 
@@ -533,7 +991,7 @@ Middleware may define one or two functions to modify incoming or outgoing messag
 
  Middleware may define one or two functions to modify incoming or outgoing messages:
 
-```
+```js
 ...</pre></li>
     </ul>
 
@@ -630,7 +1088,18 @@ Middleware may define one or two functions to modify incoming or outgoing messag
     <li>description and source-code<pre class="apidocCodePre">retry = function (options) {
   throw new Error(&#x27;bus.retry() middleware is deprecated. please use https://github.com/mateodelnorte/servicebus-retry instead&#x27;)
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+
+
+module.exports = function (options) {
+  throw new Error(&#x27;bus.<span class="apidocCodeKeywordSpan">retry</span>() middleware is deprecated. please use https://github
+.com/mateodelnorte/servicebus-retry instead&#x27;)
+};
+...</pre></li>
     </ul>
 
 
@@ -665,6 +1134,814 @@ Middleware may define one or two functions to modify incoming or outgoing messag
 
 Middleware may define one or two functions to modify incoming or outgoing messages:
 ...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.correlator" id="apidoc.module.servicebus.correlator">module servicebus.correlator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.correlator.correlator" id="apidoc.element.servicebus.correlator.correlator">
+        function <span class="apidocSignatureSpan">servicebus.</span>correlator
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Correlator(options) {
+  this.initialized = false;
+  this.queues = {};
+
+  // note: if you want to cluster servicebus, provide a &#x27;queuesfile&#x27; option param when calling .bus(options). you&#x27;ll likely do a
+ mod of the cluster.worker.id in your cluster.js file when you call fork();
+  if (cluster.isWorker &#x26;&#x26; options.queuesFile === undefined) warn(&#x27;Warning, to use subscriptions in a clustered app, you should specify
+ a queuesFile option when calling .bus(options). You may want to provide something like util.format(\&#x27;.queues.worker.%s\&#x27;, (cluster.worker.id % cluster.workers.length)).&#x27;);
+
+  this.filename =
+    (options &#x26;&#x26; options.queuesFile) ? path.join(process.cwd(), options.queuesFile)
+      : (cluster.isWorker) ? path.join(process.cwd(), util.format(&#x27;.queues.worker.%s&#x27;, cluster.worker.id))
+        :path.join(process.cwd(), &#x27;.queues&#x27;);
+
+  fs.readFile(this.filename, function (err, buf) {
+    if (err) {
+      this.queues = {};
+      this.initialized = true;
+      this.emit(&#x27;ready&#x27;);
+      return;
+    }
+    try {
+      this.queues = JSON.parse(buf.toString());
+    } catch (error) {
+      this.queues = {};
+    }
+    this.initialized = true;
+    this.emit(&#x27;ready&#x27;);
+  }.bind(this));
+
+  events.EventEmitter.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.correlator.super_" id="apidoc.element.servicebus.correlator.super_">
+        function <span class="apidocSignatureSpan">servicebus.correlator.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.correlator.prototype" id="apidoc.module.servicebus.correlator.prototype">module servicebus.correlator.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.correlator.prototype.persistQueueFile" id="apidoc.element.servicebus.correlator.prototype.persistQueueFile">
+        function <span class="apidocSignatureSpan">servicebus.correlator.prototype.</span>persistQueueFile
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">persistQueueFile = function (callback) {
+  var contents = JSON.stringify(this.queues);
+  fs.writeFile(this.filename, contents, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  } else if (options.routingKey) {
+    result = options.queueName;
+  } else {
+    result = util.format(&#x27;%s.%s&#x27;, options.queueName, newId());
+    this.queues[options.queueName] = result;
+  }
+
+  this.<span class="apidocCodeKeywordSpan">persistQueueFile</span>(function (err) {
+    if (err) return callback(err);
+    callback(null, result);
+  });
+
+};
+
+Correlator.prototype.persistQueueFile = function (callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.correlator.prototype.queueName" id="apidoc.element.servicebus.correlator.prototype.queueName">
+        function <span class="apidocSignatureSpan">servicebus.correlator.prototype.</span>queueName
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function queueName(options, callback) {
+
+  if ( ! this.initialized) {
+    return this.on(&#x27;ready&#x27;, queueName.bind(this, options, callback));
+  }
+
+  var result;
+
+  if (this.queues.hasOwnProperty(options.queueName)) {
+    result = this.queues[options.queueName];
+  } else if (options.routingKey) {
+    result = options.queueName;
+  } else {
+    result = util.format(&#x27;%s.%s&#x27;, options.queueName, newId());
+    this.queues[options.queueName] = result;
+  }
+
+  this.persistQueueFile(function (err) {
+    if (err) return callback(err);
+    callback(null, result);
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .then(function (ok) {
+      subscribed = true;
+      subscription = { consumerTag: ok.consumerTag };
+      self.emit(&#x27;subscribed&#x27;);
+    });
+}
+
+self.correlator.<span class="apidocCodeKeywordSpan">queueName</span>(options, function (err, uniqueName) {
+  if (err) throw err;
+  self.listenChannel.assertQueue(uniqueName, self.queueOptions)
+    .then(function (qok) {
+      return self.listenChannel.bindQueue(uniqueName, self.exchangeName, self.routingKey || self.queueName);
+    }).then(function () {
+      if (self.ack) {
+        self.log(&#x27;asserting error queue &#x27; + self.errorQueueName);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.index" id="apidoc.module.servicebus.index">module servicebus.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.index.bus" id="apidoc.element.servicebus.index.bus">
+        function <span class="apidocSignatureSpan">servicebus.index.</span>bus
+        <span class="apidocSignatureSpan">(options, implOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function bus(options, implOpts) {
+  return new rabbitmq.Bus(options, implOpts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Sending and Receiving
+
+  Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
+ will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+sent event:
+
+  Process A:
+```js
+var bus = require(&#x27;servicebus&#x27;).<span class="apidocCodeKeywordSpan">bus</span>();
+bus.listen(&#x27;my.event&#x27;, function (event) {
+  console.log(event);
+});
+```
+  Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.index.namedBus" id="apidoc.element.servicebus.index.namedBus">
+        function <span class="apidocSignatureSpan">servicebus.index.</span>namedBus
+        <span class="apidocSignatureSpan">(name, options, implOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function namedBus(name, options, implOpts) {
+  var bus = namedBuses[name];
+  if ( ! bus) {
+    bus = namedBuses[name] = new rabbitmq.Bus(options, implOpts);
+  }
+  return bus;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.json" id="apidoc.module.servicebus.json">module servicebus.json</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.json.deserialize" id="apidoc.element.servicebus.json.deserialize">
+        function <span class="apidocSignatureSpan">servicebus.json.</span>deserialize
+        <span class="apidocSignatureSpan">(content)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deserialize(content) {
+
+  try {
+    content = JSON.parse(content);
+  } catch (err) {
+    throw err;
+  }
+
+  return content;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    If the consumer is cancelled by RabbitMQ, the message callback will be invoked with null.
+  */
+if (message === null) {
+  return;
+}
+// todo: map contentType to default formatters
+message.content = options.formatter.<span class="apidocCodeKeywordSpan">deserialize</span>(message.content);
+options.queueType = &#x27;pubsubqueue&#x27;;
+self.bus.handleIncoming(self.listenChannel, message, options, function (channel, message, options) {
+  // amqplib intercepts errors and closes connections before bubbling up
+  // to domain error handlers when they occur non-asynchronously within
+  // callback. Therefore, if there is a process domain, we try-catch to
+  // redirect the error, assuming the domain creator&#x27;s intentions.
+  try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.json.serialize" id="apidoc.element.servicebus.json.serialize">
+        function <span class="apidocSignatureSpan">servicebus.json.</span>serialize
+        <span class="apidocSignatureSpan">(content)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serialize(content) {
+
+  try {
+    content = JSON.stringify(content);
+  } catch (err) {
+    throw err;
+  }
+
+  return content;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+options = options || {};
+var self = this;
+
+options.contentType = options.contentType || this.contentType;
+
+var channel = cb ? self.confirmChannel : self.sendChannel;
+
+channel.publish(self.exchangeName, self.routingKey || self.queueName, new Buffer(options.formatter.<span class="apidocCodeKeywordSpan
+">serialize</span>(event)), options, cb);
+
+};
+
+PubSubQueue.prototype.subscribe = function subscribe (options, callback) {
+var self = this;
+var subscribed = false;
+var subscription = null;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.pubsubqueue" id="apidoc.module.servicebus.pubsubqueue">module servicebus.pubsubqueue</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.pubsubqueue.pubsubqueue" id="apidoc.element.servicebus.pubsubqueue.pubsubqueue">
+        function <span class="apidocSignatureSpan">servicebus.</span>pubsubqueue
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PubSubQueue(options) {
+  options = options || {};
+  var exchangeOptions = options.exchangeOptions || {};
+  var queueOptions = options.queueOptions || {};
+
+  extend(queueOptions, {
+    autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
+    contentType: options.contentType || &#x27;application/json&#x27;,
+    durable: Boolean(options.ack || options.acknowledge),
+    exclusive: options.exclusive || false,
+    persistent: Boolean(options.ack || options.acknowledge || options.persistent)
+  });
+
+  extend(exchangeOptions, {
+    type: exchangeOptions.type || &#x27;topic&#x27;,
+    durable: exchangeOptions.durable === false ? false : true,
+    autoDelete: exchangeOptions.autoDelete || false
+  });
+
+  this.ack = (options.ack || options.acknowledge);
+  this.bus = options.bus;
+  this.confirmChannel = options.confirmChannel;
+  this.correlator = options.correlator;
+  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
+  this.exchangeName = options.exchangeName || this.bus.exchangeName || &#x27;amq.topic&#x27;;
+  this.exchangeOptions = exchangeOptions;
+  this.formatter = options.formatter;
+  this.initialized = false;
+  this.listening = false;
+  this.listenChannel = options.listenChannel;
+  this.log = options.log;
+  this.maxRetries = options.maxRetries || 3;
+  this.queueName = options.queueName;
+  this.queueOptions = queueOptions;
+  this.rejected = {};
+  this.routingKey = options.routingKey;
+  this.sendChannel = options.sendChannel;
+
+  this.log(&#x27;asserting exchange %s&#x27;, this.exchangeName);
+  this.sendChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+
+  if (this.confirmChannel) {
+    this.confirmChannel.assertExchange(this.exchangeName, this.exchangeOptions.type || &#x27;topic&#x27;, this.exchangeOptions);
+  }
+
+  events.EventEmitter.call(this);
+
+  this.setMaxListeners(Infinity);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.pubsubqueue.super_" id="apidoc.element.servicebus.pubsubqueue.super_">
+        function <span class="apidocSignatureSpan">servicebus.pubsubqueue.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.pubsubqueue.prototype" id="apidoc.module.servicebus.pubsubqueue.prototype">module servicebus.pubsubqueue.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.pubsubqueue.prototype.publish" id="apidoc.element.servicebus.pubsubqueue.prototype.publish">
+        function <span class="apidocSignatureSpan">servicebus.pubsubqueue.prototype.</span>publish
+        <span class="apidocSignatureSpan">(event, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function publish(event, options, cb) {
+  options = options || {};
+  var self = this;
+
+  options.contentType = options.contentType || this.contentType;
+
+  var channel = cb ? self.confirmChannel : self.sendChannel;
+
+  channel.publish(self.exchangeName, self.routingKey || self.queueName, new Buffer(options.formatter.serialize(event)), options,
+cb);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+
+setInterval(function () {
+bus.<span class="apidocCodeKeywordSpan">publish</span>(&#x27;my.event&#x27;, { my: &#x27;event&#x27; });
+}, 1000);
+```
+# Topic Routing
+
+To use topic routing to accept multiple events in a single handler, use publish and subscribe and the following syntax:
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.pubsubqueue.prototype.subscribe" id="apidoc.element.servicebus.pubsubqueue.prototype.subscribe">
+        function <span class="apidocSignatureSpan">servicebus.pubsubqueue.prototype.</span>subscribe
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function subscribe(options, callback) {
+  var self = this;
+  var subscribed = false;
+  var subscription = null;
+
+  this.log(&#x27;subscribing to queue %j with routingKey %j&#x27;, this.queueName, this.routingKey);
+
+  function _unsubscribe (cb) {
+    if (subscribed) {
+      // should we prevent multiple cancel calls?
+      self.listenChannel
+        .cancel(subscription.consumerTag)
+        .then(function () {
+          self.emit(&#x27;unlistened&#x27;);
+          if (cb) {
+            cb();
+          }
+        });
+    } else {
+      self.on(&#x27;subscribed&#x27;, _unsubscribe.bind(this, cb));
+    }
+  }
+
+  function _subscribe (uniqueName) {
+    self.listenChannel.consume(uniqueName, function (message) {
+<span class="apidocCodeCommentSpan">      /*
+          Note from http://www.squaremobius.net/amqp.node/doc/channel_api.html
+          &#x26; http://www.rabbitmq.com/consumer-cancel.html:
+
+          If the consumer is cancelled by RabbitMQ, the message callback will be invoked with null.
+        */
+</span>      if (message === null) {
+        return;
+      }
+      // todo: map contentType to default formatters
+      message.content = options.formatter.deserialize(message.content);
+      options.queueType = &#x27;pubsubqueue&#x27;;
+      self.bus.handleIncoming(self.listenChannel, message, options, function (channel, message, options) {
+        // amqplib intercepts errors and closes connections before bubbling up
+        // to domain error handlers when they occur non-asynchronously within
+        // callback. Therefore, if there is a process domain, we try-catch to
+        // redirect the error, assuming the domain creator&#x27;s intentions.
+        try {
+          callback(message.content, message);
+        } catch (err) {
+          if (process.domain &#x26;&#x26; process.domain.listeners(&#x27;error&#x27;)) {
+            process.domain.emit(&#x27;error&#x27;, err);
+          } else {
+            self.emit(&#x27;error&#x27;, err);
+          }
+        }
+      });
+    }, { noAck: ! self.ack })
+      .then(function (ok) {
+        subscribed = true;
+        subscription = { consumerTag: ok.consumerTag };
+        self.emit(&#x27;subscribed&#x27;);
+      });
+  }
+
+  self.correlator.queueName(options, function (err, uniqueName) {
+    if (err) throw err;
+    self.listenChannel.assertQueue(uniqueName, self.queueOptions)
+      .then(function (qok) {
+        return self.listenChannel.bindQueue(uniqueName, self.exchangeName, self.routingKey || self.queueName);
+      }).then(function () {
+        if (self.ack) {
+          self.log(&#x27;asserting error queue &#x27; + self.errorQueueName);
+          var errorQueueOptions = extend(self.queueOptions, {
+            autoDelete: options.autoDeleteErrorQueue || false
+          });
+          self.listenChannel.assertQueue(self.errorQueueName, errorQueueOptions)
+          .then(function (_qok) {
+            _subscribe(uniqueName);
+          });
+        } else {
+          _subscribe(uniqueName);
+        }
+      });
+  });
+
+  return {
+    unsubscribe: _unsubscribe
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+# Publish / Subscribe
+
+  Servicebus can also send messages from 1:N processes in a fan-out architecture. In this pattern, one sender publishes a message
+ and any number of subscribers can receive. The pattern for usage looks very similar to send/listen:
+
+  Process A (can be run any number of times, all will receive the event):
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+bus.<span class="apidocCodeKeywordSpan">subscribe</span>(&#x27;my.event&#x27;, function (event) {
+  console.log(event);
+});
+```
+  Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.queue" id="apidoc.module.servicebus.queue">module servicebus.queue</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue.queue" id="apidoc.element.servicebus.queue.queue">
+        function <span class="apidocSignatureSpan">servicebus.</span>queue
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Queue(options) {
+  options = options || {};
+  var queueOptions = options.queueOptions || {};
+
+  extend(queueOptions, {
+    autoDelete: options.autoDelete || ! (options.ack || options.acknowledge),
+    contentType: options.contentType || &#x27;application/json&#x27;,
+    durable: Boolean(options.ack || options.acknowledge),
+    exclusive: options.exclusive || false,
+    persistent: Boolean(options.ack || options.acknowledge || options.persistent)
+  });
+
+  this.ack = (options.ack || options.acknowledge);
+  this.assertQueue = (options.assertQueue === undefined) ? true : options.assertQueue;
+  this.bus = options.bus;
+  this.confirmChannel = options.confirmChannel;
+  this.errorQueueName = options.queueName + &#x27;.error&#x27;;
+  this.formatter = options.formatter;
+  this.initialized = false;
+  this.listening = false;
+  this.listenChannel = options.listenChannel;
+  this.log = options.log;
+  this.maxRetries = options.maxRetries || 3;
+  this.queueName = options.queueName;
+  this.queueOptions = queueOptions;
+  this.rejected = {};
+  this.routingKey = options.routingKey;
+  this.sendChannel = options.sendChannel;
+
+  EventEmitter.call(this);
+
+  this.setMaxListeners(Infinity);
+
+  var self = this;
+
+  this.log(&#x27;asserting queue %s&#x27;, this.queueName);
+
+  if ( ! this.assertQueue) {
+    self.initialized = true;
+    self.emit(&#x27;ready&#x27;);
+  } else {
+    this.listenChannel.assertQueue(this.queueName, this.queueOptions).then(function (_qok) {
+      if (self.ack) {
+        self.log(&#x27;asserting error queue %s&#x27;, self.errorQueueName);
+        var errorQueueOptions = extend(self.queueOptions, {
+          autoDelete: options.autoDeleteErrorQueue || false
+        });
+        self.listenChannel.assertQueue(self.errorQueueName, self.queueOptions)
+        .then(function (_qok) {
+          self.initialized = true;
+          self.emit(&#x27;ready&#x27;);
+        });
+      } else {
+        self.initialized = true;
+        self.emit(&#x27;ready&#x27;);
+      }
+    }).catch(function (err) {
+      self.log(&#x27;error connecting to queue %s. error: %s&#x27;, options.queueName, err.toString());
+      self.emit(&#x27;error&#x27;, err);
+    });
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue.super_" id="apidoc.element.servicebus.queue.super_">
+        function <span class="apidocSignatureSpan">servicebus.queue.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.servicebus.queue.prototype" id="apidoc.module.servicebus.queue.prototype">module servicebus.queue.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue.prototype.destroy" id="apidoc.element.servicebus.queue.prototype.destroy">
+        function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function destroy(options) {
+  options = options || {};
+  var em = new EventEmitter();
+  this.log(&#x27;deleting queue %s&#x27;, this.queueName);
+  this.listenChannel.deleteQueue(this.queueName)
+    .then(function (ok) {
+      em.emit(&#x27;success&#x27;);
+    });
+  if (this.errorQueueName &#x26;&#x26; this.ack) {
+    this.listenChannel.deleteQueue(this.errorQueueName, { ifEmpty: true });
+  }
+  return em;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue.prototype.listen" id="apidoc.element.servicebus.queue.prototype.listen">
+        function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>listen
+        <span class="apidocSignatureSpan">(callback, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listen(callback, options) {
+  options = options || {};
+  queueOptions = options.queueOptions || {};
+
+  var self = this;
+
+  this.log(&#x27;listening to queue %j&#x27;, this.queueName);
+
+  if ( ! this.initialized) {
+    return this.on(&#x27;ready&#x27;, listen.bind(this, callback, options));
+  }
+
+  this.listenChannel.consume(this.queueName, function (message) {
+<span class="apidocCodeCommentSpan">    /*
+        Note from http://www.squaremobius.net/amqp.node/doc/channel_api.html
+        &#x26; http://www.rabbitmq.com/consumer-cancel.html:
+
+        If the consumer is cancelled by RabbitMQ, the message callback will be invoked with null.
+      */
+</span>    if (message === null) {
+      return;
+    }
+    message.content = options.formatter.deserialize(message.content);
+    options.queueType = &#x27;queue&#x27;;
+    self.bus.handleIncoming(self.listenChannel, message, options, function (channel, message, options) {
+      // amqplib intercepts errors and closes connections before bubbling up
+      // to domain error handlers when they occur non-asynchronously within
+      // callback. Therefore, if there is a process domain, we try-catch to
+      // redirect the error, assuming the domain creator&#x27;s intentions.
+      try {
+        callback(message.content, message);
+      } catch (err) {
+        if (process.domain &#x26;&#x26; process.domain.listeners(&#x27;error&#x27;)) {
+          process.domain.emit(&#x27;error&#x27;, err);
+        } else {
+          self.emit(&#x27;error&#x27;, err);
+        }
+      }
+    });
+  }, { noAck: ! self.ack })
+    .then(function (ok) {
+      self.listening = true;
+      self.subscription = { consumerTag: ok.consumerTag };
+      self.emit(&#x27;listening&#x27;);
+    });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Sending and Receiving
+
+  Servicebus allows simple sending and recieving of messages in a 1:1 sender:listener configuration. The following two processes
+ will send an event message called &#x27;my.event&#x27; every second from process A to process B via RabbitMQ and print out the
+sent event:
+
+  Process A:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+bus.<span class="apidocCodeKeywordSpan">listen</span>(&#x27;my.event&#x27;, function (event) {
+  console.log(event);
+});
+```
+  Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue.prototype.send" id="apidoc.element.servicebus.queue.prototype.send">
+        function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>send
+        <span class="apidocSignatureSpan">(event, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function send(event, options, cb) {
+  options = options || {};
+  var self = this;
+
+  if ( ! this.initialized) {
+    return this.on(&#x27;ready&#x27;, send.bind(this, event, options, cb));
+  }
+
+  options.contentType = options.contentType || this.contentType;
+  options.persistent = Boolean(options.ack || options.acknowledge || options.persistent || self.ack);
+
+  var channel = cb ? this.confirmChannel : this.sendChannel;
+
+  channel.sendToQueue(this.routingKey || this.queueName, new Buffer(options.formatter.serialize(event)), options, cb);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+  Process B:
+```js
+var bus = require(&#x27;servicebus&#x27;).bus();
+
+setInterval(function () {
+  bus.<span class="apidocCodeKeywordSpan">send</span>(&#x27;my.event&#x27;, { my: &#x27;event&#x27; });
+}, 1000);
+```
+## Round-Robin Load Distribution
+
+  Simply running multiple versions of Process A, above, will cause servicebus to distribute sent messages evenly accross the list
+ of listeners, in a round-robin pattern.
+
+## Message Acknowledgement
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.servicebus.queue.prototype.unlisten" id="apidoc.element.servicebus.queue.prototype.unlisten">
+        function <span class="apidocSignatureSpan">servicebus.queue.prototype.</span>unlisten
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unlisten() {
+  var em = new EventEmitter();
+  var self = this;
+
+  if (this.listening) {
+    this.listenChannel.cancel(this.subscription.consumerTag)
+      .then(function (err, ok) {
+      delete self.subscription;
+      self.listening = false;
+      self.bus.emit(&#x27;unlistened&#x27;, self);
+      em.emit(&#x27;success&#x27;);
+    });
+  } else {
+    this.on(&#x27;listening&#x27;, unlisten.bind(this));
+  }
+
+  return em;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
